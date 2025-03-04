@@ -28,13 +28,13 @@ export default function Navbar() {
         </a>
         <span>
           <a
-            href="https://youtube.com/@vaderdev"
+            href="https://youtube.com/@hclanka_films"
             target="_blank"
             className="underline decoration"
           >
             youtuber
           </a>
-          {", aspiring physicist, founder."}
+          {", aspiring dl/ml researcher, founder."}
         </span>
       </div>
       <div className="">
@@ -66,7 +66,9 @@ export default function Navbar() {
               <HoverCardTrigger>
                 <Button
                   variant="ghost"
-                  onClick={() => navigator.clipboard.writeText("hclanka")}
+                  onClick={() =>
+                    navigator.clipboard.writeText("scoopydoobeedoo")
+                  }
                 >
                   <FaDiscord className="h-[1.2rem] w-[1.2rem]" />
                 </Button>
