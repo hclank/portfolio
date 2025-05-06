@@ -40,7 +40,7 @@ export default function Navbar() {
       <div className="">
         <HoverCard>
           <HoverCardTrigger>
-            <a href="https://github.com/chandudagoat" target="_blank">
+            <a href="https://github.com/hclank" target="_blank">
               <Button variant="ghost">
                 <FaGithub className="w-[1.2rem] h-[1.2rem]" />
               </Button>
@@ -67,7 +67,7 @@ export default function Navbar() {
                 <Button
                   variant="ghost"
                   onClick={() =>
-                    navigator.clipboard.writeText("scoopydoobeedoo")
+                    navigator.clipboard.writeText("scoopofbakedbeans")
                   }
                 >
                   <FaDiscord className="h-[1.2rem] w-[1.2rem]" />
