@@ -17,26 +17,15 @@ function init(containerRef: RefObject<HTMLDivElement>) {
   return { scene, camera, renderer };
 }
 
-export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
-  const vertexShader = ``;
-  const fragmentShader = ``;
-
-  const { scene, camera, renderer } = init(containerRef);
-
-  const geometry = new three.BoxGeometry(
-    window.innerWidth,
-    window.innerHeight,
-    1
-  );
-  const material = new three.ShaderMaterial({
-    uniforms: {},
-    vertexShader: vertexShader,
-    fragmentShader: fragmentShader,
-  });
-  const cube = new three.Mesh(geometry, material);
-  scene.add(cube);
-
-  camera.position.z = 5;
+function graphics(
+  scene: three.Scene,
+  renderer: three.WebGLRenderer,
+  camera: three.PerspectiveCamera
+) {
+  const geometry = new three.SphereGeometry(1.5, 32, 32);
+  const material = new three.MeshBasicMaterial({ color: 0x00ff00 });
+  const sphere_1 = new three.Mesh(geometry, material);
+  scene.add(sphere_1);
 
   const renderScene = () => {
     renderer.render(scene, camera);
@@ -44,6 +33,13 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   };
 
   renderScene();
+}
+
+export default function webgl_stuff(containerRef: RefObject<HTMLDivElement>) {
+  const { scene, camera, renderer } = init(containerRef);
+  camera.position.set(0, 0, 1.3);
+
+  graphics(scene, renderer, camera);
 
   const handleResize = () => {
     const width = window.innerWidth;
