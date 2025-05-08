@@ -1,9 +1,8 @@
 import { RefObject } from "react";
 import * as three from "three";
 
-export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
+function init(containerRef: RefObject<HTMLDivElement>) {
   const scene = new three.Scene();
-
   const camera = new three.PerspectiveCamera(
     75,
     window.innerWidth / window.innerHeight,
@@ -15,12 +14,25 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   renderer.setSize(window.innerWidth, window.innerHeight);
   containerRef.current?.appendChild(renderer.domElement);
 
+  return { scene, camera, renderer };
+}
+
+export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
+  const vertexShader = ``;
+  const fragmentShader = ``;
+
+  const { scene, camera, renderer } = init(containerRef);
+
   const geometry = new three.BoxGeometry(
     window.innerWidth,
     window.innerHeight,
     1
   );
-  const material = new three.MeshBasicMaterial({ color: 0x000000 });
+  const material = new three.ShaderMaterial({
+    uniforms: {},
+    vertexShader: vertexShader,
+    fragmentShader: fragmentShader,
+  });
   const cube = new three.Mesh(geometry, material);
   scene.add(cube);
 
