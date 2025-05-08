@@ -18,23 +18,26 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import Image from "next/image";
+
+import logo from "@/app/logo.png";
 
 export default function Navbar() {
   return (
-    <nav className="w-full h-32 flex items-center justify-center">
-      <div className="mr-64">
+    <nav className="w-full h-32 flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         <a href="/">
-          <h1 className="font-semibold">hclanka</h1>
+          <Image src={logo} alt="logo" className="w-10" />
         </a>
         <span>
           <a
             href="https://youtube.com/@hclanka_films"
             target="_blank"
-            className="underline decoration"
+            className="hover:underline decoration"
           >
-            youtuber
+            film
           </a>
-          {", aspiring dl/ml researcher, founder."}
+          {", data/hardware enthusiast."}
         </span>
       </div>
       <div className="">
