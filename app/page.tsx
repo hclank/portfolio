@@ -7,10 +7,11 @@ const Home = () => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      graphics(containerRef);
+      const cleanup = graphics(containerRef);
+      return cleanup;
     }
   }, []);
-  return <div ref={containerRef} className="h-screen"></div>;
+  return <div ref={containerRef}></div>;
 };
 
 export default Home;
