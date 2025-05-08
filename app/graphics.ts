@@ -30,7 +30,7 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   const sphere = new three.Mesh(geometry, material);
   scene.add(sphere);
 
-  camera.position.set(0, 0, 5);
+  camera.position.set(0, 0, 1.3);
 
   const renderScene = () => {
     time += 0.005;
