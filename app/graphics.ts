@@ -17,24 +17,37 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   renderer.setSize(window.innerWidth, window.innerHeight);
   containerRef.current?.appendChild(renderer.domElement);
 
-  const geometry = new three.SphereGeometry(1.5, 32, 32);
-  const material = new three.ShaderMaterial({
+  const bg_geometry = new three.SphereGeometry(1.5, 32, 32);
+  const bg_material = new three.ShaderMaterial({
     side: three.DoubleSide,
     uniforms: {
       time: { value: 0 },
       resolution: { value: new three.Vector4() },
     },
-    vertexShader: shaders.vertex,
-    fragmentShader: shaders.fragment,
+    vertexShader: shaders.bg_vertex,
+    fragmentShader: shaders.bg_fragment,
   });
-  const sphere = new three.Mesh(geometry, material);
-  scene.add(sphere);
+  const bg_sphere = new three.Mesh(bg_geometry, bg_material);
+  scene.add(bg_sphere);
+
+  let geo = new three.SphereGeometry(0.4, 32, 32);
+  let mat = new three.ShaderMaterial({
+    side: three.DoubleSide,
+    uniforms: {
+      time: { value: 0 },
+      resolution: { value: new three.Vector4() },
+    },
+    vertexShader: shaders.main_vertex,
+    fragmentShader: shaders.main_fragment,
+  });
+  const main_sphere = new three.Mesh(geo, mat);
+  //   scene.add(main_sphere);
 
   camera.position.set(0, 0, 1.3);
 
   const renderScene = () => {
     time += 0.001;
-    material.uniforms.time.value = time;
+    bg_material.uniforms.time.value = time;
     renderer.setPixelRatio(0.2);
     renderer.render(scene, camera);
     requestAnimationFrame(renderScene);
