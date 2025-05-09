@@ -69,8 +69,8 @@ void main() {
     vec3 baseSecond = vec3(110./255., 68./255., 255./255.);
 
     vec2 baseUV = rotate2D(n)*vPosition.xy*0.1;
-    float basePattern = line(baseUV,0.1);
-    float secondPattern = line(baseUV, 0.5);
+    float basePattern = line(baseUV,0.5);
+    float secondPattern = line(baseUV, 0.1);
 
     vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
     vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
