@@ -35,6 +35,7 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   const renderScene = () => {
     time += 0.001;
     material.uniforms.time.value = time;
+    renderer.setPixelRatio(0.2);
     renderer.render(scene, camera);
     requestAnimationFrame(renderScene);
   };
