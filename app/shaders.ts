@@ -48,9 +48,18 @@ float noise(vec3 p){
     return o4.y * d.y + o4.x * (1.0 - d.y);
 }
 
+float line(vec2 uv, float offset) {
+    return smoothstep(
+        0.0, 0.5 + offset*0.5,
+        abs(0.5*(sin(uv.x*10.0) + offset*2.0))
+    );
+}
+
 void main() {
-    float n = noise(vPosition+time);
-    gl_FragColor = vec4(n,n, n, 1.);
+    // float n = noise(vPosition+time);
+    vec2 baseUV = vPosition.xy;
+    float basePattern = line(baseUV,0.1);
+    gl_FragColor = vec4(vec3(basePattern), 1.);
 }
 `;
 
