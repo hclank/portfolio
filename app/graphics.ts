@@ -33,7 +33,7 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   camera.position.set(0, 0, 1.3);
 
   const renderScene = () => {
-    time += 0.005;
+    time += 0.001;
     material.uniforms.time.value = time;
     renderer.render(scene, camera);
     requestAnimationFrame(renderScene);

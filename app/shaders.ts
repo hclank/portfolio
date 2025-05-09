@@ -51,15 +51,31 @@ float noise(vec3 p){
 float line(vec2 uv, float offset) {
     return smoothstep(
         0.0, 0.5 + offset*0.5,
-        abs(0.5*(sin(uv.x*10.0) + offset*2.0))
+        0.5*abs((sin(uv.x*30.0) + offset*2.0))
+    );
+}
+
+mat2 rotate2D(float angle) {
+    return mat2(
+        cos(angle),-sin(angle),
+        sin(angle),cos(angle)
     );
 }
 
 void main() {
-    // float n = noise(vPosition+time);
-    vec2 baseUV = vPosition.xy;
+    float n = noise(vPosition+time);
+    vec3 baseFirst = vec3(255./255., 255./255., 255./255.);
+    vec3 accent = vec3(0., 0., 0.);
+    vec3 baseSecond = vec3(110./255., 68./255., 255./255.);
+
+    vec2 baseUV = rotate2D(n)*vPosition.xy*0.1;
     float basePattern = line(baseUV,0.1);
-    gl_FragColor = vec4(vec3(basePattern), 1.);
+    float secondPattern = line(baseUV, 0.5);
+
+    vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
+    vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
+
+    gl_FragColor = vec4(vec3(secondBaseColor), 1.);
 }
 `;
 
