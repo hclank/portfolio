@@ -30,20 +30,7 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   const bg_sphere = new three.Mesh(bg_geometry, bg_material);
   scene.add(bg_sphere);
 
-  let geo = new three.SphereGeometry(0.4, 32, 32);
-  let mat = new three.ShaderMaterial({
-    side: three.DoubleSide,
-    uniforms: {
-      time: { value: 0 },
-      resolution: { value: new three.Vector4() },
-    },
-    vertexShader: shaders.main_vertex,
-    fragmentShader: shaders.main_fragment,
-  });
-  const main_sphere = new three.Mesh(geo, mat);
-  //   scene.add(main_sphere);
-
-  camera.position.set(0, 0, 1.3);
+  camera.position.set(0, 0, 1.5);
 
   const renderScene = () => {
     time += 0.001;

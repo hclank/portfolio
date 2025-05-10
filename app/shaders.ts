@@ -79,32 +79,4 @@ void main() {
 }
 `;
 
-const main_vertex = `
-uniform float time;
-varying vec2 vUv;
-varying vec3 vPosition;
-uniform vec2 pixels;
-float pi = 3.14;
-
-void main() {
-    vUv = uv;
-    vPosition = position;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-}
-`;
-
-const main_fragment = `
-uniform float time;
-uniform float progress;
-uniform sampler2D texture1;
-uniform vec4 resolution;
-uniform vec2 vUv;
-varying vec3 vPosition;
-float pi = 3.14;
-
-void main() {
-    gl_FragColor = vec4(vec3(0., 0., 0.), 0.3);
-}
-`;
-
-export default { bg_vertex, bg_fragment, main_vertex, main_fragment };
+export default { bg_vertex, bg_fragment };
