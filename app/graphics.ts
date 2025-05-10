@@ -27,15 +27,18 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
     vertexShader: shaders.bg_vertex,
     fragmentShader: shaders.bg_fragment,
   });
+  bg_material.uniforms.resolution.value = new three.Vector2(
+    window.innerWidth,
+    window.innerHeight
+  );
   const bg_sphere = new three.Mesh(bg_geometry, bg_material);
   scene.add(bg_sphere);
 
-  camera.position.set(0, 0, 1.5);
+  camera.position.set(0, 0, 1.3);
 
   const renderScene = () => {
     time += 0.001;
     bg_material.uniforms.time.value = time;
-    renderer.setPixelRatio(0.2);
     renderer.render(scene, camera);
     requestAnimationFrame(renderScene);
   };

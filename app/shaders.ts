@@ -16,7 +16,7 @@ const bg_fragment = `
 uniform float time;
 uniform float progress;
 uniform sampler2D texture1;
-uniform vec4 resolution;
+uniform vec2 resolution;
 uniform vec2 vUv;
 varying vec3 vPosition;
 float pi = 3.14;
@@ -51,7 +51,7 @@ float noise(vec3 p){
 float line(vec2 uv, float offset) {
     return smoothstep(
         0.0, 0.5 + offset*0.5,
-        0.5*abs((sin(uv.x*30.0) + offset*2.0))
+        abs(0.5*(sin(uv.x*30.0) + offset*2.0))
     );
 }
 
@@ -68,12 +68,14 @@ void main() {
     vec3 accent = vec3(0., 0., 0.);
     vec3 baseSecond = vec3(110./255., 68./255., 255./255.);
 
+
     vec2 baseUV = rotate2D(n)*vPosition.xy*0.1;
     float basePattern = line(baseUV,0.5);
     float secondPattern = line(baseUV, 0.1);
 
     vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
     vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
+
 
     gl_FragColor = vec4(vec3(secondBaseColor), 1.);
 }
