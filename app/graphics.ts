@@ -17,6 +17,12 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   renderer.setSize(window.innerWidth, window.innerHeight);
   containerRef.current?.appendChild(renderer.domElement);
 
+  const renderTarget = new three.WebGLRenderTarget(
+    window.innerWidth,
+    window.innerHeight,
+    { minFilter: three.LinearFilter, magFilter: three.LinearFilter }
+  );
+
   const bg_geometry = new three.SphereGeometry(1.5, 32, 32);
   const bg_material = new three.ShaderMaterial({
     side: three.DoubleSide,
@@ -36,11 +42,33 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
 
   camera.position.set(0, 0, 1.3);
 
+  const quadGeometry = new three.PlaneGeometry(2, 2);
+  const quadMaterial = new three.ShaderMaterial({
+    uniforms: {
+      tDiffuse: { value: renderTarget.texture },
+      time: { value: 0 },
+      grainAmount: { value: 0.15 },
+    },
+    vertexShader: shaders.grain_vertex,
+    fragmentShader: shaders.grain_fragment,
+    depthTest: false,
+    depthWrite: false,
+  });
+  const quad = new three.Mesh(quadGeometry, quadMaterial);
+  const quadScene = new three.Scene();
+  const quadCamera = new three.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+  quadScene.add(quad);
+
   const renderScene = () => {
     time += 0.001;
     bg_material.uniforms.time.value = time;
+    quadMaterial.uniforms.time.value = time;
 
+    renderer.setRenderTarget(renderTarget);
     renderer.render(scene, camera);
+
+    renderer.setRenderTarget(null);
+    renderer.render(quadScene, quadCamera);
     requestAnimationFrame(renderScene);
   };
 
@@ -54,6 +82,8 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
     camera.updateProjectionMatrix();
 
     renderer.setSize(width, height);
+    renderTarget.setSize(width, height);
+    bg_material.uniforms.resolution.value.set(width, height);
   };
 
   window.addEventListener("resize", handleResize);

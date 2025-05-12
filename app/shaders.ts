@@ -70,8 +70,8 @@ void main() {
 
 
     vec2 baseUV = rotate2D(n)*vPosition.xy*0.1;
-    float basePattern = line(baseUV,0.5);
-    float secondPattern = line(baseUV, 0.1);
+    float basePattern = line(baseUV,0.1);
+    float secondPattern = line(baseUV, 0.5);
 
     vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
     vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
@@ -81,7 +81,33 @@ void main() {
 }
 `;
 
-const grain_vertex = ``;
-const grain_fragment = ``;
+const grain_vertex = `
+varying vec2 vUv;
+void main() {
+    vUv = uv;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+`;
+const grain_fragment = `
+uniform sampler2D tDiffuse; // The texture to apply grain to (the rendered scene)
+uniform float time;
+uniform float grainAmount; // Control grain intensity
+varying vec2 vUv;
+
+// Simple random function
+float random(vec2 co) {
+    return fract(sin(dot(co.xy, vec2(12.9898,78.233))) * 43758.5453);
+}
+
+void main() {
+    vec4 color = texture2D(tDiffuse, vUv);
+
+    // Risograph grain: monochrome, animated
+    float grain = random(vUv * vec2(800.0, 600.0) + time * 0.5) - 0.5;
+    color.rgb += grain * grainAmount;
+
+    gl_FragColor = color;
+}
+`;
 
 export default { bg_vertex, bg_fragment, grain_vertex, grain_fragment };
