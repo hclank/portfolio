@@ -81,4 +81,7 @@ void main() {
 }
 `;
 
-export default { bg_vertex, bg_fragment };
+const grain_vertex = ``;
+const grain_fragment = ``;
+
+export default { bg_vertex, bg_fragment, grain_vertex, grain_fragment };

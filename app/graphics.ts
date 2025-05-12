@@ -39,6 +39,7 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
   const renderScene = () => {
     time += 0.001;
     bg_material.uniforms.time.value = time;
+
     renderer.render(scene, camera);
     requestAnimationFrame(renderScene);
   };
