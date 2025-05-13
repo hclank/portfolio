@@ -47,7 +47,7 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
     uniforms: {
       tDiffuse: { value: renderTarget.texture },
       time: { value: 0 },
-      grainAmount: { value: 0.15 },
+      grainAmount: { value: 0.19 },
     },
     vertexShader: shaders.grain_vertex,
     fragmentShader: shaders.grain_fragment,

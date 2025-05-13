@@ -68,14 +68,12 @@ void main() {
     vec3 accent = vec3(0., 0., 0.);
     vec3 baseSecond = vec3(110./255., 68./255., 255./255.);
 
-
-    vec2 baseUV = rotate2D(n)*vPosition.xy*0.1;
+    vec2 baseUV = rotate2D(n*1.3)*vPosition.xy*0.1;
     float basePattern = line(baseUV,0.1);
     float secondPattern = line(baseUV, 0.5);
-
+    
     vec3 baseColor = mix(baseSecond, baseFirst, basePattern);
     vec3 secondBaseColor = mix(baseColor, accent, secondPattern);
-
 
     gl_FragColor = vec4(vec3(secondBaseColor), 1.);
 }
