@@ -108,4 +108,50 @@ void main() {
 }
 `;
 
-export default { bg_vertex, bg_fragment, grain_vertex, grain_fragment };
+const fresnel_vertex = `
+uniform float time;
+varying vec3 vPosition;
+uniform vec2 pixels;
+varying vec2 vUv;
+varying vec3 vNormal;
+varying vec3 vWorldPosition;
+
+float pi = 3.14;
+
+void main() {
+    vUv = uv;
+    vNormal = normalize(normalMatrix * normal);
+    vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+    vWorldPosition = worldPosition.xyz;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+`;
+const fresnel_fragment = `
+uniform float time;
+uniform float rimPower;      // Controls sharpness of rim (suggest 2.0–5.0)
+uniform vec3 rimColor;      // Color of the rim
+uniform vec3 baseColor;     // Base color of the object
+
+varying vec2 vUv;
+varying vec3 vNormal;
+varying vec3 vWorldPosition;
+
+void main() {
+    vec3 viewDir = normalize(cameraPosition - vWorldPosition);
+    float fresnel = pow(1.0 - dot(viewDir, normalize(vNormal)), rimPower);
+
+    // Combine base color and rim color
+    vec3 color = mix(baseColor, rimColor, fresnel);
+
+    gl_FragColor = vec4(color, 1.0);
+}
+`;
+
+export default {
+  bg_vertex,
+  bg_fragment,
+  grain_vertex,
+  grain_fragment,
+  fresnel_vertex,
+  fresnel_fragment,
+};

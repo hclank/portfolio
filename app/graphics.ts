@@ -42,6 +42,24 @@ export default function Graphics(containerRef: RefObject<HTMLDivElement>) {
 
   camera.position.set(0, 0, 1.3);
 
+  const fresnel_sphere_geo = new three.SphereGeometry(0.4, 32, 32);
+  let fresnel_spherer_mat = new three.ShaderMaterial({
+    side: three.DoubleSide,
+    uniforms: {
+      time: { value: 0 },
+      rimPower: { value: 2.5 }, // Try 2.0 to 5.0 for different effects
+      rimColor: { value: new three.Color(0xffffff) }, // Rim color (white)
+      baseColor: { value: new three.Color(0x222266) }, // Base color
+    },
+    vertexShader: shaders.fresnel_vertex,
+    fragmentShader: shaders.fresnel_fragment,
+  });
+  const fresnel_sphere = new three.Mesh(
+    fresnel_sphere_geo,
+    fresnel_spherer_mat
+  );
+  scene.add(fresnel_sphere);
+
   const quadGeometry = new three.PlaneGeometry(2, 2);
   const quadMaterial = new three.ShaderMaterial({
     uniforms: {
