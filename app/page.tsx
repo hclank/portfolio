@@ -14,9 +14,8 @@ import hclanka from "./hclanka.jpg";
 const Home = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center">
-      <div className="main grid grid-cols-2 gap-4">
-        {/* card 1 */}
-        <Card className="flex flex-col items-center">
+      <div>
+        <Card className="w-96 h-96 flex flex-col items-center">
           <CardHeader>
             <CardTitle>HC Lanka</CardTitle>
             <CardDescription>ml and hardware enthusiast</CardDescription>
@@ -38,75 +37,6 @@ const Home = () => {
             </a>
             <a href="https://github.com/chandudagoat" target="_blank">
               <FaInstagram className="w-6 h-6 hover:text-gray-300" />
-            </a>
-          </CardContent>
-        </Card>
-
-        {/* card 2 */}
-        <Card>
-          <CardHeader>
-            <CardTitle>HC Lanka</CardTitle>
-            <CardDescription>ml and hardware enthusiast</CardDescription>
-          </CardHeader>
-          <CardContent className=""></CardContent>
-        </Card>
-
-        {/* card 3 */}
-        <Card>
-          <CardHeader>
-            <CardTitle>HC Lanka</CardTitle>
-            <CardDescription>ml and hardware enthusiast</CardDescription>
-          </CardHeader>
-          <CardContent className="">
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaGithub />
-              </Button>
-            </a>
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaLinkedin />
-              </Button>
-            </a>
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaTwitter />
-              </Button>
-            </a>
-            <a href="https://github.com/chandudagoat" target="_blank">
-              <Button variant="ghost">
-                <FaInstagram />
-              </Button>
-            </a>
-          </CardContent>
-        </Card>
-
-        {/* card 4 */}
-        <Card>
-          <CardHeader>
-            <CardTitle>HC Lanka</CardTitle>
-            <CardDescription>ml and hardware enthusiast</CardDescription>
-          </CardHeader>
-          <CardContent className="">
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaGithub />
-              </Button>
-            </a>
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaLinkedin />
-              </Button>
-            </a>
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaTwitter />
-              </Button>
-            </a>
-            <a href="https://github.com/chandudagoat" target="_blank">
-              <Button variant="ghost">
-                <FaInstagram />
-              </Button>
             </a>
           </CardContent>
         </Card>
