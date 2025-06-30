@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -8,37 +9,35 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FaTwitter, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import hclanka from "./hclanka.jpg";
 
 const Home = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div className="main grid grid-cols-2 gap-4">
         {/* card 1 */}
-        <Card>
+        <Card className="flex flex-col items-center">
           <CardHeader>
             <CardTitle>HC Lanka</CardTitle>
             <CardDescription>ml and hardware enthusiast</CardDescription>
           </CardHeader>
-          <CardContent className="">
+          <Image
+            src={hclanka}
+            alt="my picture"
+            className="w-48 h-48 object-cover"
+          />
+          <CardContent className="p-4 flex grid grid-cols-4 gap-4">
             <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaGithub />
-              </Button>
+              <FaGithub className="w-6 h-6 hover:text-gray-300" />
             </a>
             <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaLinkedin />
-              </Button>
+              <FaLinkedin className="w-6 h-6 hover:text-gray-300" />
             </a>
             <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaTwitter />
-              </Button>
+              <FaTwitter className="w-6 h-6 hover:text-gray-300" />
             </a>
             <a href="https://github.com/chandudagoat" target="_blank">
-              <Button variant="ghost">
-                <FaInstagram />
-              </Button>
+              <FaInstagram className="w-6 h-6 hover:text-gray-300" />
             </a>
           </CardContent>
         </Card>
@@ -49,28 +48,7 @@ const Home = () => {
             <CardTitle>HC Lanka</CardTitle>
             <CardDescription>ml and hardware enthusiast</CardDescription>
           </CardHeader>
-          <CardContent className="">
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaGithub />
-              </Button>
-            </a>
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaLinkedin />
-              </Button>
-            </a>
-            <a href="https://github.com/hclank" target="_blank">
-              <Button variant="ghost">
-                <FaTwitter />
-              </Button>
-            </a>
-            <a href="https://github.com/chandudagoat" target="_blank">
-              <Button variant="ghost">
-                <FaInstagram />
-              </Button>
-            </a>
-          </CardContent>
+          <CardContent className=""></CardContent>
         </Card>
 
         {/* card 3 */}
