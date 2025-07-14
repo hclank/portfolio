@@ -29,13 +29,13 @@ const Home = () => {
             <a href="https://github.com/hclank" target="_blank">
               <FaGithub className="w-6 h-6 hover:text-gray-300" />
             </a>
-            <a href="https://github.com/hclank" target="_blank">
+            <a href="https://linkedin.com/in/hclanka" target="_blank">
               <FaLinkedin className="w-6 h-6 hover:text-gray-300" />
             </a>
-            <a href="https://github.com/hclank" target="_blank">
+            <a href="https://x.com/hclanka" target="_blank">
               <FaTwitter className="w-6 h-6 hover:text-gray-300" />
             </a>
-            <a href="https://github.com/chandudagoat" target="_blank">
+            <a href="https://instagram.com/hclanka" target="_blank">
               <FaInstagram className="w-6 h-6 hover:text-gray-300" />
             </a>
           </CardContent>
