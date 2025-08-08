@@ -1,19 +1,41 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { FaTwitter, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import hclanka from "./hclanka.jpg";
 
 const Home = () => {
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full h-screen flex flex-col">
+      <header className="w-full h-[80px] p-8 flex items-center">
+        <Link
+          href="/"
+          className="mr-2 text-xl text-blue-400 underline"
+          target="_blank"
+        >
+          home
+        </Link>
+        <Link
+          href="https://www.youtube.com/@hclanka_films"
+          className="mr-2 text-xl text-blue-400 underline"
+          target="_blank"
+        >
+          my yt channel
+        </Link>
+        <Link
+          href="https://linkedin.com/in/hclanka"
+          className="mr-2 text-xl text-blue-400 underline"
+          target="_blank"
+        >
+          linkedin
+        </Link>
+      </header>
       <div>
         <Card className="w-96 h-96 flex flex-col items-center">
           <CardHeader>
