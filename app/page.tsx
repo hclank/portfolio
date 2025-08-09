@@ -1,68 +1,39 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { FaTwitter, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
 import hclanka from "./hclanka.jpg";
 
 const Home = () => {
   return (
     <div className="w-full h-screen flex flex-col">
-      <header className="w-full h-[80px] p-8 flex items-center">
-        <Link
-          href="/"
-          className="mr-2 text-xl text-blue-400 underline"
-          target="_blank"
-        >
-          home
+      <header className="w-full h-[80px] p-8 flex items-center justify-around">
+        <Link href="/" className="mr-2 text-xl text-black" target="_blank">
+          hclanka.xyz
         </Link>
-        <Link
-          href="https://www.youtube.com/@hclanka_films"
-          className="mr-2 text-xl text-blue-400 underline"
-          target="_blank"
-        >
-          my yt channel
-        </Link>
-        <Link
-          href="https://linkedin.com/in/hclanka"
-          className="mr-2 text-xl text-blue-400 underline"
-          target="_blank"
-        >
-          linkedin
-        </Link>
+        <div className="flex">
+          <Link
+            href="https://www.youtube.com/@hclanka_films"
+            className="mr-2 text-xl text-blue-400 underline hover:text-blue-500"
+            target="_blank"
+          >
+            <FaYoutube />
+          </Link>
+          <Link
+            href="https://linkedin.com/in/hclanka"
+            className="mr-2 text-xl text-blue-400 underline hover:text-blue-500"
+            target="_blank"
+          >
+            <FaLinkedin />
+          </Link>
+          <Link
+            href="https://github.com/hclank"
+            className="text-xl text-blue-400 underline hover:text-blue-500"
+            target="_blank"
+          >
+            <FaGithub />
+          </Link>
+        </div>
       </header>
-      <div>
-        <Card className="w-96 h-96 flex flex-col items-center">
-          <CardHeader>
-            <CardTitle>HC Lanka</CardTitle>
-            <CardDescription>ml and hardware enthusiast</CardDescription>
-          </CardHeader>
-          <Image
-            src={hclanka}
-            alt="my picture"
-            className="w-48 h-48 object-cover"
-          />
-          <CardContent className="p-4 flex grid grid-cols-4 gap-4">
-            <a href="https://github.com/hclank" target="_blank">
-              <FaGithub className="w-6 h-6 hover:text-gray-300" />
-            </a>
-            <a href="https://linkedin.com/in/hclanka" target="_blank">
-              <FaLinkedin className="w-6 h-6 hover:text-gray-300" />
-            </a>
-            <a href="https://x.com/hclanka" target="_blank">
-              <FaTwitter className="w-6 h-6 hover:text-gray-300" />
-            </a>
-            <a href="https://instagram.com/hclanka" target="_blank">
-              <FaInstagram className="w-6 h-6 hover:text-gray-300" />
-            </a>
-          </CardContent>
-        </Card>
-      </div>
+      <div></div>
     </div>
   );
 };
