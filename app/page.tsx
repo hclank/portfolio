@@ -42,11 +42,11 @@ const Home = () => {
         </h1>
 
         <div className="pr-0 text-wrap sm:pr-44">
-          <p className="text-gray-500 text-xl mb-4">
-            i&apos;m just a guy who loves to build and tinker with stuff.
+          <p className="text-gray-500 text-xl mb-4 text-left">
+            i&apos;m just a guy who loves to build and tinker with tech.
           </p>
 
-          <p className="text-gray-500 text-xl mb-4 text-justify">
+          <p className="text-gray-500 text-xl mb-4">
             interested in topics such as{" "}
             <span className="font-semibold">machine learning</span>,{" "}
             <span className="font-semibold">deep learning</span>,{" "}
@@ -55,7 +55,7 @@ const Home = () => {
             related to ai.
           </p>
 
-          <p className="text-gray-500 text-xl mb-4 text-justify">
+          <p className="text-gray-500 text-xl mb-4 text-left">
             building a tool called
             <Link
               href="https://github.com/backspaceco/traf"
@@ -68,7 +68,7 @@ const Home = () => {
             companies figure out where their best customers actually come from.
           </p>
 
-          <p className="text-gray-500 text-xl mb-6 text-justify">
+          <p className="text-gray-500 text-xl mb-6 text-left">
             also trying to build a holding company called
             <Link
               href="https://github.com/backspaceco"
@@ -80,7 +80,7 @@ const Home = () => {
             future.
           </p>
 
-          <p className="text-gray-500 text-xl mb-6 text-justify">
+          <p className="text-gray-500 text-xl mb-6 text-left">
             i&apos;m interested in hackathons and plan on joining as many as i
             can, i&apos;m also interested in events like google summer of code
             and competitive programming.
