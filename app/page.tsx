@@ -31,11 +31,11 @@ const Home = () => {
           </Link>
         </div>
 
-        <h1 className="text-5xl font-semibold my-8">hi i'm hclanka.</h1>
+        <h1 className="text-5xl font-semibold my-8">hi i&apos;m hclanka.</h1>
 
         <div className="pr-8">
           <p className="text-gray-500 text-xl mb-4">
-            i'm just a guy who loves to build and tinker with stuff.
+            i&apos;m just a guy who loves to build and tinker with stuff.
           </p>
 
           <p className="text-gray-500 text-xl mb-4 text-justify">
@@ -74,8 +74,9 @@ const Home = () => {
           </p>
 
           <p className="text-gray-500 text-xl mb-6 text-justify">
-            i'm interested in hackathons and plan on joining as many as i can,
-            i'm also interested in events like GSoC and competitive programming.
+            i&apos;m interested in hackathons and plan on joining as many as i
+            can, i&apos;m also interested in events like GSoC and competitive
+            programming.
           </p>
 
           <Image src={hclanka} alt="me" />
