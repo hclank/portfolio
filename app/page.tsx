@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import hclanka from "./hclanka.jpg";
+import { toast } from "sonner";
 
 const Home = () => {
   const [isVisible, setIsVisisble] = useState(false);
@@ -88,6 +89,20 @@ const Home = () => {
             className="w-full mb-8"
             onClick={() => {
               setIsVisisble(true);
+
+              navigator.clipboard
+                .writeText("chandu.lanka13@gmail.com")
+                .then(() => {
+                  console.log("copied");
+                });
+
+              toast("chandu.lanka13@gmail.com", {
+                description: "Copied my email to clipboard",
+                action: {
+                  label: "Close",
+                  onClick: () => console.log("closed"),
+                },
+              });
             }}
           >
             click me :O
