@@ -1,9 +1,14 @@
+"use client";
+import { useState } from "react";
+import Confetti from "@/components/confetti";
 import Link from "next/link";
 import Image from "next/image";
 import { FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 import hclanka from "./hclanka.jpg";
 
 const Home = () => {
+  const [isVisible, setIsVisisble] = useState(false);
   return (
     <div className="w-full h-screen flex flex-col">
       <header className="w-1/2 h-screen py-16 px-12 flex flex-col">
@@ -33,7 +38,7 @@ const Home = () => {
 
         <h1 className="text-5xl font-semibold my-8">hi i&apos;m hclanka.</h1>
 
-        <div className="pr-8">
+        <div className="pr-44">
           <p className="text-gray-500 text-xl mb-4">
             i&apos;m just a guy who loves to build and tinker with stuff.
           </p>
@@ -78,10 +83,19 @@ const Home = () => {
             can, i&apos;m also interested in events like GSoC and competitive
             programming.
           </p>
-
-          <Image src={hclanka} alt="me" />
+          <Button
+            className="w-full mb-8"
+            onClick={() => {
+              setIsVisisble(true);
+            }}
+          >
+            click me :O
+          </Button>
         </div>
+
+        <Image src={hclanka} alt="me" />
       </header>
+      {isVisible && <Confetti />}
     </div>
   );
 };
