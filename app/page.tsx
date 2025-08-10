@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaYoutube, FaGithub, FaLinkedin } from "react-icons/fa";
 import hclanka from "./hclanka.jpg";
 
@@ -51,14 +52,33 @@ const Home = () => {
             <Link
               href="https://github.com/backspaceco/traf"
               target="_blank"
-              className="text-blue-400"
+              className="text-blue-400 font-semibold"
             >
               {" "}
-              "traf"
+              traf
             </Link>{" "}
             which is a smart survey tool that plugs directly to hubspot to help
-            companies figure out where their best customers actually come from
+            companies figure out where their best customers actually come from.
           </p>
+
+          <p className="text-gray-500 text-xl mb-6 text-justify">
+            also trying to build a holding company called{" "}
+            <Link
+              href="https://github.com/backspaceco"
+              className="font-semibold text-blue-400"
+            >
+              backspace
+            </Link>{" "}
+            which is like a suite of ai tools and other products i make in the
+            future.
+          </p>
+
+          <p className="text-gray-500 text-xl mb-6 text-justify">
+            i'm interested in hackathons and plan on joining as many as i can,
+            i'm also interested in events like GSoC and competitive programming.
+          </p>
+
+          <Image src={hclanka} alt="me" />
         </div>
       </header>
     </div>
