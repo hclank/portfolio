@@ -5,35 +5,62 @@ import hclanka from "./hclanka.jpg";
 const Home = () => {
   return (
     <div className="w-full h-screen flex flex-col">
-      <header className="w-full h-[80px] p-8 flex items-center justify-around">
-        <Link href="/" className="mr-2 text-xl text-black" target="_blank">
-          hclanka.xyz
-        </Link>
+      <header className="w-1/2 h-screen py-16 px-12 flex flex-col">
         <div className="flex">
           <Link
             href="https://www.youtube.com/@hclanka_films"
-            className="mr-2 text-xl text-blue-400 underline hover:text-blue-500"
+            className="text-2xl text-blue-400 underline hover:text-blue-500"
             target="_blank"
           >
             <FaYoutube />
           </Link>
           <Link
             href="https://linkedin.com/in/hclanka"
-            className="mr-2 text-xl text-blue-400 underline hover:text-blue-500"
+            className="text-2xl mx-1 text-blue-400 underline hover:text-blue-500"
             target="_blank"
           >
             <FaLinkedin />
           </Link>
           <Link
             href="https://github.com/hclank"
-            className="text-xl text-blue-400 underline hover:text-blue-500"
+            className="text-2xl text-blue-400 underline hover:text-blue-500"
             target="_blank"
           >
             <FaGithub />
           </Link>
         </div>
+
+        <h1 className="text-5xl font-semibold my-8">hi i'm hclanka.</h1>
+
+        <div className="pr-8">
+          <p className="text-gray-500 text-xl mb-4">
+            i'm just a guy who loves to build and tinker with stuff.
+          </p>
+
+          <p className="text-gray-500 text-xl mb-4 text-justify">
+            interested in topics such as{" "}
+            <span className="font-semibold">machine learning</span>,{" "}
+            <span className="font-semibold">deep learning</span>,{" "}
+            <span className="font-semibold">reinforcement learning</span>,{" "}
+            <span className="font-semibold">nlp</span> and basically everything
+            related to ai.
+          </p>
+
+          <p className="text-gray-500 text-xl mb-4 text-justify">
+            currently venturing in the space of surveys, building a tool called
+            <Link
+              href="https://github.com/backspaceco/traf"
+              target="_blank"
+              className="text-blue-400"
+            >
+              {" "}
+              "traf"
+            </Link>{" "}
+            which is a smart survey tool that plugs directly to hubspot to help
+            companies figure out where their best customers actually come from
+          </p>
+        </div>
       </header>
-      <div></div>
     </div>
   );
 };
