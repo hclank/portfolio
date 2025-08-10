@@ -10,8 +10,8 @@ import hclanka from "./hclanka.jpg";
 const Home = () => {
   const [isVisible, setIsVisisble] = useState(false);
   return (
-    <div className="w-full h-screen flex flex-col">
-      <header className="w-1/2 h-screen py-16 px-12 flex flex-col">
+    <div className="w-full h-full flex flex-col">
+      <header className="w-full h-full py-16 px-12 flex flex-col sm:w-1/2">
         <div className="flex">
           <Link
             href="https://www.youtube.com/@hclanka_films"
@@ -36,9 +36,11 @@ const Home = () => {
           </Link>
         </div>
 
-        <h1 className="text-5xl font-semibold my-8">hi i&apos;m hclanka.</h1>
+        <h1 className="text-4xl font-semibold my-8 sm:text-5xl">
+          hi i&apos;m hclanka.
+        </h1>
 
-        <div className="pr-44">
+        <div className="pr-0 text-wrap sm:pr-44">
           <p className="text-gray-500 text-xl mb-4">
             i&apos;m just a guy who loves to build and tinker with stuff.
           </p>
@@ -53,35 +55,34 @@ const Home = () => {
           </p>
 
           <p className="text-gray-500 text-xl mb-4 text-justify">
-            currently venturing in the space of surveys, building a tool called
+            building a tool called
             <Link
               href="https://github.com/backspaceco/traf"
               target="_blank"
-              className="text-blue-400 font-semibold"
+              className="text-blue-400 font-semibold mx-2"
             >
-              {" "}
               traf
-            </Link>{" "}
+            </Link>
             which is a smart survey tool that plugs directly to hubspot to help
             companies figure out where their best customers actually come from.
           </p>
 
           <p className="text-gray-500 text-xl mb-6 text-justify">
-            also trying to build a holding company called{" "}
+            also trying to build a holding company called
             <Link
               href="https://github.com/backspaceco"
-              className="font-semibold text-blue-400"
+              className="font-semibold text-blue-400 mx-1 sm:mx-2"
             >
               backspace
-            </Link>{" "}
+            </Link>
             which is like a suite of ai tools and other products i make in the
             future.
           </p>
 
           <p className="text-gray-500 text-xl mb-6 text-justify">
             i&apos;m interested in hackathons and plan on joining as many as i
-            can, i&apos;m also interested in events like GSoC and competitive
-            programming.
+            can, i&apos;m also interested in events like google summer of code
+            and competitive programming.
           </p>
           <Button
             className="w-full mb-8"
